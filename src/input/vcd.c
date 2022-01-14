@@ -2118,7 +2118,7 @@ static int init(struct sr_input *in, GHashTable *options)
 	data = g_hash_table_lookup(options, "numchannels");
 	inc->options.maxchannels = g_variant_get_uint32(data);
 
-	data = g_hash_table_lookup(options, "samplerate");
+	data = g_hash_table_lookup(options, "samplerate_overwrite");
 	inc->options.samplerate = g_variant_new_uint64(data);
 	if (inc->options.samplerate != 0) {
 		// Set the samplerate
@@ -2275,7 +2275,7 @@ static struct sr_option options[] = {
 		NULL, NULL,
 	},
 	[OPT_SAMPLERATE] = {
-		"samplerate", "Overwrite Samplerate",
+		"samplerate_overwrite", "Overwrite Samplerate",
 		"Overwrite the input file's samplerate, i.e. for frequencies not representable via timescale."
 		"By default the VCD file is searched for an timescale section to compute the samplerate."
 		"For values != 0 this value will be considered as the actual samplerate and the timescale section will be ignored.",
