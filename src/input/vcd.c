@@ -2119,7 +2119,7 @@ static int init(struct sr_input *in, GHashTable *options)
 	inc->options.maxchannels = g_variant_get_uint32(data);
 
 	data = g_hash_table_lookup(options, "samplerate_overwrite");
-	inc->options.samplerate = g_variant_new_uint64(data);
+	inc->options.samplerate = g_variant_get_uint64(data);
 	if (inc->options.samplerate != 0) {
 		// Set the samplerate
 		inc->samplerate = inc->options.samplerate;
